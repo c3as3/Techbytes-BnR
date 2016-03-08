@@ -1,0 +1,16 @@
+<#
+.Synopsis
+   Copy files from a remote drive or PC
+.DESCRIPTION
+   Copy data from specified folders Save it to a folder on your shared drive with username as the Parent Folder for user Backup Purposes
+#>
+
+[cmdletBinding()]
+param(
+    [Parameter(Mandatory=$True)]
+    [String[]]$WorkstationID,
+   
+    [Parameter(Mandatory=$True)]
+    [String[]]$Username
+)
+Copy-Item -path \\$WorkstationID\c$\users\$Username\Documents\test.txt \\$WorkstationID\c$\users\$Username\Desktop

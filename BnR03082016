@@ -38,9 +38,10 @@ Copy-Item -path \\$WSIDsource\c$\users\$Username\appdata\Roaming\Microsoft\Outlo
 
 #Local Disk Data
 
-Copy-Item -path \\$WSIDsource\c$\users\$Username\Desktop  \\$WSIDdestination\c$\users\$YourUsername\Documents\$WSIDsource\Desktop -Recurse
-Copy-Item -path \\$WSIDsource\c$\users\$Username\Documnents \\$WSIDdestination\c$\users\$YourUsername\Documents\$WSIDsource\Documents -Recurse
-Copy-Item -path \\$WSIDsource\c$\users\$Username\Downloads \\$WSIDdestination\c$\users\$YourUsername\Documents\$WSIDsource\Downloads -Recurse
-Copy-Item -path \\$WSIDsource\c$\users\$Username\Favorites \\$WSIDdestination\c$\users\$YourUsername\Documents\$WSIDsource\Favorites -Recurse
+Copy-Item -path \\$WSIDsource\c$\users\$Username\Desktop\*  \\$WSIDdestination\c$\users\$YourUsername\Documents\$WSIDsource\Desktop -Recurse -Exclude $WSIDsource
+Copy-Item -path \\$WSIDsource\c$\users\$Username\Documents\* \\$WSIDdestination\c$\users\$YourUsername\Documents\$WSIDsource\Documents -Recurse -Exclude $WSIDsource
+Copy-Item -path \\$WSIDsource\c$\users\$Username\Downloads\* \\$WSIDdestination\c$\users\$YourUsername\Documents\$WSIDsource\Downloads -Recurse -Exclude $WSIDsource
+Copy-Item -path \\$WSIDsource\c$\users\$Username\Favorites\* \\$WSIDdestination\c$\users\$YourUsername\Documents\$WSIDsource\Favorites -Recurse -Exclude $WSIDsource
 
 Read-Host -Prompt "Press Enter To Exit"
+

@@ -20,28 +20,30 @@
         [String]$YourUsername
 )
 
+$ext = Get-Date -Format '.MMddyy'
+
 Read-Host -Prompt "Press Enter To begin Data Transfer"
 
 <#This is the path convention Copy-Item -path \\$WSIDsource\c$\users\$Username\Documents\test.txt \\$WSIDdestination\c$\users\$YourUsername\Desktop#>
 
 #Local AppData
-Copy-Item -path \\$WSIDsource\c$\users\$Username\appdata\local\microsoft\office \\$WSIDdestination\c$\users\$YourUsername\Documents\$WSIDsource\appdata\Local\ -Recurse
+Copy-Item -path \\$WSIDsource\c$\users\$Username\appdata\local\microsoft\office \\$WSIDdestination\c$\users\$YourUsername\Documents\$WSIDsource$ext\appdata\Local\ -Recurse
 copy-item -path \\$WSIDsource\c$\users\$Username\appdata\local\microsoft\Outlook \\$WSIDdestination\c$\users\$YourUsername\Documents\$WSIDsource\appdata\Local\ -Recurse
 
 #Roaming AppData
-Copy-Item -path \\$WSIDsource\c$\users\$Username\appdata\Roaming\Microsoft\Office \\$WSIDdestination\c$\users\$YourUsername\Documents\$WSIDsource\appdata\Roaming -Recurse
-Copy-Item -path \\$WSIDsource\c$\users\$Username\appdata\Roaming\Microsoft\Templates \\$WSIDdestination\c$\users\$YourUsername\Documents\$WSIDsource\appdata\Roaming -Recurse
-Copy-Item -path \\$WSIDsource\c$\users\$Username\appdata\Roaming\Microsoft\Signatures \\$WSIDdestination\c$\users\$YourUsername\Documents\$WSIDsource\appdata\Roaming -Recurse
-Copy-Item -path \\$WSIDsource\c$\users\$Username\appdata\Roaming\Microsoft\Word \\$WSIDdestination\c$\users\$YourUsername\Documents\$WSIDsource\appdata\Roaming -Recurse
-Copy-Item -path \\$WSIDsource\c$\users\$Username\appdata\Roaming\Microsoft\Excel \\$WSIDdestination\c$\users\$YourUsername\Documents\$WSIDsource\appdata\Roaming -Recurse
-Copy-Item -path \\$WSIDsource\c$\users\$Username\appdata\Roaming\Microsoft\Outlook \\$WSIDdestination\c$\users\$YourUsername\Documents\$WSIDsource\appdata\Roaming -Recurse
+Copy-Item -path \\$WSIDsource\c$\users\$Username\appdata\Roaming\Microsoft\Office \\$WSIDdestination\c$\users\$YourUsername\Documents\$WSIDsource$ext\appdata\Roaming -Recurse
+Copy-Item -path \\$WSIDsource\c$\users\$Username\appdata\Roaming\Microsoft\Templates \\$WSIDdestination\c$\users\$YourUsername\Documents\$WSIDsource$ext\appdata\Roaming -Recurse
+Copy-Item -path \\$WSIDsource\c$\users\$Username\appdata\Roaming\Microsoft\Signatures \\$WSIDdestination\c$\users\$YourUsername\Documents\$WSIDsource$ext\appdata\Roaming -Recurse
+Copy-Item -path \\$WSIDsource\c$\users\$Username\appdata\Roaming\Microsoft\Word \\$WSIDdestination\c$\users\$YourUsername\Documents\$WSIDsource$ext\appdata\Roaming -Recurse
+Copy-Item -path \\$WSIDsource\c$\users\$Username\appdata\Roaming\Microsoft\Excel \\$WSIDdestination\c$\users\$YourUsername\Documents\$WSIDsource$ext\appdata\Roaming -Recurse
+Copy-Item -path \\$WSIDsource\c$\users\$Username\appdata\Roaming\Microsoft\Outlook \\$WSIDdestination\c$\users\$YourUsername\Documents\$WSIDsource$ext\appdata\Roaming -Recurse
 
 #Local Disk Data
 
-Copy-Item -path \\$WSIDsource\c$\users\$Username\Desktop\*  \\$WSIDdestination\c$\users\$YourUsername\Documents\$WSIDsource\Desktop -Recurse -Exclude $WSIDsource
-Copy-Item -path \\$WSIDsource\c$\users\$Username\Documents\* \\$WSIDdestination\c$\users\$YourUsername\Documents\$WSIDsource\Documents -Recurse -Exclude $WSIDsource
-Copy-Item -path \\$WSIDsource\c$\users\$Username\Downloads\* \\$WSIDdestination\c$\users\$YourUsername\Documents\$WSIDsource\Downloads -Recurse -Exclude $WSIDsource
-Copy-Item -path \\$WSIDsource\c$\users\$Username\Favorites\* \\$WSIDdestination\c$\users\$YourUsername\Documents\$WSIDsource\Favorites -Recurse -Exclude $WSIDsource
+Copy-Item -path \\$WSIDsource\c$\users\$Username\Desktop\*  \\$WSIDdestination\c$\users\$YourUsername\Documents\$WSIDsource$ext\Desktop -Recurse -Exclude $WSIDsource
+Copy-Item -path \\$WSIDsource\c$\users\$Username\Documents\* \\$WSIDdestination\c$\users\$YourUsername\Documents\$WSIDsource$ext\Documents -Recurse -Exclude $WSIDsource
+Copy-Item -path \\$WSIDsource\c$\users\$Username\Downloads\* \\$WSIDdestination\c$\users\$YourUsername\Documents\$WSIDsource$ext\Downloads -Recurse -Exclude $WSIDsource
+Copy-Item -path \\$WSIDsource\c$\users\$Username\Favorites\* \\$WSIDdestination\c$\users\$YourUsername\Documents\$WSIDsource$ext\Favorites -Recurse -Exclude $WSIDsource
 
 Read-Host -Prompt "Press Enter To Exit"
 
